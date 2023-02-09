@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    SEI NELLA TUA HOME PRIVATA, Quì puoi gestire la tua pagina!
                 </div>
             </div>
         </div>

@@ -18,14 +18,6 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'homepage']);
 
-Route::middleware(['auth', 'verified'])
-   ->name('admin.')
-   ->prefix('ad')
-   ->group(function () {
-         Route::get('/dash', [MainController :: class, 'logged'])
-         ->name('dashboard');
-   });
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
