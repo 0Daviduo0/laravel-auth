@@ -8,8 +8,8 @@
         <label for="name">Name</label>
         <input type="text" name="name">
         <br>
-        <label for="image">Image</label>
-        <input type="text" name="image">
+        <label for="main_image">Image</label>
+        <input type="text" name="main_image">
         <br>
         <label for="description">Description</label>
         <textarea type="text" name="description" cols="40" rows="10"></textarea>

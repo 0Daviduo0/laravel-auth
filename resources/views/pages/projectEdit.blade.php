@@ -8,7 +8,7 @@
         <label for="name">Name</label>
         <input type="text" name="name" value={{ $project -> name }}>
         <br>
-        <label for="image">Image</label>
+        <label for="main_image">Image</label>
         <input type="text" name="image" value={{ $project -> main_image }}>
         <br>
         <label for="description">Description</label>

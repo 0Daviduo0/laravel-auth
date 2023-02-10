@@ -45,12 +45,12 @@ class MainController extends Controller
     //validazione modifica
     public function projectUpdate(Request $request, Project $project) {
 
-        $data = $request -> validate([
-            'name' => 'required|string|max:64|unique:projects,name,' . $project -> id,
+        $data = $request->validate([
+            'name' => 'required|string|max:64|unique:projects',
             'description' => 'nullable|string',
-            'main_image' => 'required|string|unique:projects,name,' . $project -> id,
+            'main_image' => 'required|string|unique:projects',
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|unique:projects,name,|string' . $project -> id,
+            'repo_link' => 'required|unique:projects|string',
         ]);
     
         $project -> name = $data['name'];
