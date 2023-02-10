@@ -45,11 +45,11 @@ class MainController extends Controller
     public function projectUpdate(Request $request, Project $project) {
 
         $data = $request -> validate([
-            'name' => 'required|string|max:64|unique:projects',
+            'name' => 'required|string|max:64|unique:projects,name,' . $project -> id,
             'description' => 'nullable|string',
-            'main_image' => 'required|string|unique:projects',
+            'main_image' => 'required|string|unique:projects,name,' . $project -> id,
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|unique:projects|string',
+            'repo_link' => 'required|unique:projects,name,|string' . $project -> id,
         ]);
     
         $project -> name = $data['name'];
@@ -73,11 +73,11 @@ class MainController extends Controller
     public function projectStore(Request $request) {
 
         $data = $request -> validate([
-            'name' => 'required|string|max:64|unique:projects',
+            'name' => 'required|string|max:64|unique:projects,name,',
             'description' => 'nullable|string',
-            'main_image' => 'required|string|unique:projects',
+            'main_image' => 'required|string|unique:projects,name,',
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|unique:projects|string',
+            'repo_link' => 'required|unique:projects,name,|string',
         ]);
     
         $project = new Project();

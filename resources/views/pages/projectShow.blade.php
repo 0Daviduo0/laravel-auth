@@ -9,6 +9,7 @@
     <p>
         {{ $project -> description }}
     </p>
+    <a href="{{ $project -> repo_link }}">Repo Link</a>
 </ul>
 
 @endsection
