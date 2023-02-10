@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.main-layout')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -22,4 +23,19 @@
         </div>
     </div>
 </div>
+    
+<h1>Projects</h1>
+<a href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
+<ul>
+    @foreach ($projects as $project)
+        <li> 
+            <!-- <img src="{{ $project -> main_image }}" alt=""> -->
+            <a href="{{ route('project.show', $project) }}">{{ $project -> name }}
+            </a> - <a href="{{ route('project.delete', $project) }}"> 🗑 </a>
+             - 
+            <a href="{{ route('project.edit', $project) }}"> ✏ </a>
+        </li>
+    @endforeach
+</ul>
+
 @endsection

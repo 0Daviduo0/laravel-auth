@@ -16,11 +16,31 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', [MainController::class, 'homepage']);
+Route::get('/', [MainController::class, 'homepage'])->name('homepage');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin', [MainController::class, 'adminpage'])
+->middleware(['auth', 'verified'])->name('adminpage');
+
+//visualizzazione nel dettaglio
+Route :: get('/project/show/{project}', [MainController :: class, 'projectShow'])
+    -> name('project.show');
+
+//eliminazione
+Route :: get('/project/delete/{project}', [MainController :: class, 'projectDelete'])
+    -> name('project.delete');
+
+//modifica
+Route :: get('/project/edit/{project}', [MainController :: class, 'projectEdit'])
+    -> name('project.edit');
+
+Route :: post('/project/update/{project}', [MainController :: class, 'projectUpdate'])
+    -> name('project.update');
+
+//nuovo
+Route :: get('/project/create', [MainController :: class, 'projectCreate'])
+    -> name('project.create');
+Route :: post('/project/store', [MainController :: class, 'projectStore'])
+    -> name('project.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
