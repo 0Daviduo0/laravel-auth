@@ -17,8 +17,9 @@ class MainController extends Controller
     public function adminpage() {
 
         $projects = Project :: all();
+    
+        return view('pages.admin', compact('projects'));
 
-        return view('pages.adminpage', compact('projects'));
     }
 
     //visualizzazione nel dettaglio

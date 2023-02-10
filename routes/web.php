@@ -18,8 +18,9 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'homepage'])->name('homepage');
 
-Route::get('/admin', [MainController::class, 'adminpage'])
-->middleware(['auth', 'verified'])->name('adminpage');
+Route::get('/dashboard', function () {
+        return view('pages.admin');
+})->middleware(['auth', 'verified'])->name('admin');
 
 //visualizzazione nel dettaglio
 Route :: get('/project/show/{project}', [MainController :: class, 'projectShow'])
