@@ -12,10 +12,10 @@
         <input type="text" name="image" value={{ $project -> main_image }}>
         <br>
         <label for="description">Description</label>
-        <input type="text" name="description" value={{ $project -> description }}>
+        <textarea type="text" name="description" cols="40" rows="10" value={{ $project -> description }}></textarea>
         <br>
         <label for="release_date">Release date</label>
-        <input type="text" name="release_date" value={{ $project -> release_date }}>
+        <input type="date" name="release_date" value={{ $project -> release_date }}>
         <br>
         <label for="repo_link">Github repo link</label>
         <input type="text" name="repo_link" value={{ $project -> repo_link }}>
