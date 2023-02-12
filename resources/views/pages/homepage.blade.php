@@ -2,17 +2,22 @@
 
 @section('content')
     
-<h1>Projects</h1>
+<main>
 
-<ul>
+    <h1>Projects</h1>
+    <div class="projects_wrapper">
     @foreach ($projects as $project)
-        <li>
-            <h2>
-                <a href="{{ route('project.show', $project) }}"> {{ $project -> name }} </a> 
-            </h2>
-            <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt="">
-        </li>
+        
+            <div class="project">
+
+                <div class="prj-title"> <a href="{{ route('project.show', $project) }}">{{ $project -> name }} </div>
+                <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt=""> </a>
+
+            </div>
     @endforeach
-</ul>
+    </div>
+
+</main>
+
 
 @endsection
