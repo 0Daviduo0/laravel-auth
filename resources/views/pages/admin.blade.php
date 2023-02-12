@@ -27,19 +27,21 @@
 <main>
 
     <h1>Projects</h1>
-    <a href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
+    <div class="new-project_wrapper">
+        <a class="new-project_button" href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
+    </div>
     <div class="projects_wrapper">
     @foreach ($projects as $project)
         
             <div class="project">
 
                 <div class="prj-title"> <a href="{{ route('project.show', $project) }}">{{ $project -> name }} </div>
-                <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt="">
-        
-                </a> - <a href="{{ route('project.delete', $project) }}"> 🗑 </a>
-                    - 
-                <a href="{{ route('project.edit', $project) }}"> ✏ </a>
-
+                <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt=""> </a> 
+                <div class="admin-actions_wrapper">
+                    <a class="prj-delete-button" href="{{ route('project.delete', $project) }}"> 🗑 </a> 
+                    <a class="prj-edit-button" href="{{ route('project.edit', $project) }}"> ✏ </a>
+                </div>
+               
             </div>
     @endforeach
     </div>
