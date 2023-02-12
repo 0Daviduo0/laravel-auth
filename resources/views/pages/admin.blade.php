@@ -38,8 +38,8 @@
                 <div class="prj-title"> <a href="{{ route('project.show', $project) }}">{{ $project -> name }} </div>
                 <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt=""> </a> 
                 <div class="admin-actions_wrapper">
-                    <a class="prj-delete-button" href="{{ route('project.delete', $project) }}"> 🗑 </a> 
-                    <a class="prj-edit-button" href="{{ route('project.edit', $project) }}"> ✏ </a>
+                    <a class="prj-delete-button" href="{{ route('project.delete', $project) }}"> <i class="fa-solid fa-trash-can"></i> </a> 
+                    <a class="prj-edit-button" href="{{ route('project.edit', $project) }}"> <i class="fa-solid fa-square-pen"></i> </a>
                 </div>
                
             </div>
