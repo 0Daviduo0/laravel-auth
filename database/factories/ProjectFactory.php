@@ -19,9 +19,9 @@ class ProjectFactory extends Factory
 	return [
 		'name' => fake() -> word(),
 		'description' => fake() -> text(200),				 
-		'main_image' => fake() -> imageUrl(640, 480),
+		// 'main_image' => ,
         'release_date' => fake() -> date(),
-        'repo_link' => fake() -> word(),
+        // 'repo_link' => ,
 	];
 }
 }

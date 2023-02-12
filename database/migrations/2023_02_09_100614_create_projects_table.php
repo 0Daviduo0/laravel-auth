@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name', 64) -> unique();
             $table->text('description') -> nullable();
-            $table->string('main_image') -> unique();
+            $table->string('main_image') -> default('No-Image-Placeholder.png');
             $table->date('release_date');
-            $table->string('repo_link') -> unique();
+            $table->string('repo_link') -> default('https://github.com');
             $table->timestamps();
         });
     }

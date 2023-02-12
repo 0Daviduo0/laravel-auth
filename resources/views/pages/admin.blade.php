@@ -29,8 +29,9 @@
 <ul>
     @foreach ($projects as $project)
         <li> 
-            <!-- <img src="{{ $project -> main_image }}" alt=""> -->
             <a href="{{ route('project.show', $project) }}">{{ $project -> name }}
+            <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt="">
+
             </a> - <a href="{{ route('project.delete', $project) }}"> 🗑 </a>
              - 
             <a href="{{ route('project.edit', $project) }}"> ✏ </a>
