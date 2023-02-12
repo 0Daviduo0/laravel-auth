@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
@@ -45,13 +46,16 @@ class MainController extends Controller
     //validazione modifica
     public function projectUpdate(Request $request, Project $project) {
 
-        $data = $request->validate([
-            'name' => 'required|string|max:64|unique:projects',
+        $data = $request -> validate([
+            'name' => 'required|string|max:64|unique:projects,name,',
             'description' => 'nullable|string',
-            'main_image' => 'required|string|unique:projects',
+            'main_image' => 'required|image|max:2048|mimes:jpg,png,jpeg,gif,svg',
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|unique:projects|string',
+            'repo_link' => 'required|string',
         ]);
+
+        $img_path = Storage::put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
     
         $project -> name = $data['name'];
         $project -> description = $data['description'];
@@ -61,7 +65,7 @@ class MainController extends Controller
     
         $project -> save();
     
-        return redirect() -> route('homepage');
+        return redirect() -> route('admin');
     }
 
     //nuovo
@@ -76,10 +80,13 @@ class MainController extends Controller
         $data = $request -> validate([
             'name' => 'required|string|max:64|unique:projects,name,',
             'description' => 'nullable|string',
-            'main_image' => 'required|string|unique:projects,name,',
+            'main_image' => 'required|image|max:2048|mimes:jpg,png,jpeg,gif,svg',
             'release_date' => 'required|date|before:today',
-            'repo_link' => 'required|unique:projects,name,|string',
+            'repo_link' => 'required|string',
         ]);
+
+        $img_path = Storage::put('uploads', $data['main_image']);
+        $data['main_image'] = $img_path;
     
         $project = new Project();
     

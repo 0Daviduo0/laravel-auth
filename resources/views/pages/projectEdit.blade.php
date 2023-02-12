@@ -3,13 +3,15 @@
 @section('content')
     
     <h1>New task</h1>
-    <form method="POST" action="{{ route('project.update', $project) }}">
+    <form method="POST" action="{{ route('project.update', $project) }}" enctype="multipart/form-data">
         @csrf
         <label for="name">Name</label>
         <input type="text" name="name" value={{ $project -> name }}>
         <br>
         <label for="main_image">Image</label>
-        <input type="text" name="image" value={{ $project -> main_image }}>
+        <input type="file" name="main_image"> <br>
+        Immagine Precedente: <br>
+        <img class="prj-image" src="{{ asset('storage/' . $project -> main_image) }}" alt=""> <br>
         <br>
         <label for="description">Description</label>
         <textarea type="text" name="description" cols="40" rows="10" value={{ $project -> description }}></textarea>
