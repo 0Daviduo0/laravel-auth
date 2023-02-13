@@ -4,7 +4,9 @@
     
 <main>
 
-    <h1>Projects</h1>
+    <div class="main_title">
+        <h1>PROJECTS</h1>
+    </div>
     <div class="projects_wrapper">
     @foreach ($projects as $project)
         

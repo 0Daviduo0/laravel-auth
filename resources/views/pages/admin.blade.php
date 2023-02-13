@@ -2,22 +2,28 @@
 
 @section('content')
 
-<div class="container">
+<div class="container welcome_admin_banner">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header admin_banner_title text-light">
+                    <i class="fa-solid fa-user profile_icon_banner"></i> Benvenuto {{ Auth::user()->name }}
+                </div>
 
-                <div class="card-body">
+                <div class="card-body admin_banner_body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-
-                    SEI NELLA TUA HOME PRIVATA, Quì puoi gestire la tua pagina!
+                    In questo momento ti trovi nella tua dashboard! Quì potrai:
+                    <ul>
+                        <i class="fa-regular fa-square-plus"></i> Aggiungere altri progetti <br> 
+                        <i class="fa-solid fa-trash-can"></i> Rimuovere progetti <br>
+                        <i class="fa-solid fa-square-pen"></i> Modificare progetti <br>
+                        <i class="fa-solid fa-file-powerpoint"></i> Visualizzare progetti
+                    </ul>
                 </div>
             </div>
         </div>
@@ -26,9 +32,12 @@
     
 <main>
 
-    <h1>Projects</h1>
+    <div class="main_title">
+        <h1>PROJECTS</h1>
+    </div>
+    
     <div class="new-project_wrapper">
-        <a class="new-project_button" href="{{ route('project.create') }}">CREA NUOVO PROGETTO</a>
+        <a class="new-project_button" href="{{ route('project.create') }}"> <i class="fa-regular fa-square-plus"></i> CREA NUOVO PROGETTO</a>
     </div>
     <div class="projects_wrapper">
     @foreach ($projects as $project)
