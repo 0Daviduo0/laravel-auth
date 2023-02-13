@@ -37,7 +37,7 @@
     </div>
     
     <div class="new-project_wrapper">
-        <a class="new-project_button" href="{{ route('project.create') }}"> <i class="fa-regular fa-square-plus"></i> CREA NUOVO PROGETTO</a>
+        <a class="new-project_button" href="{{ route('project.create') }}"> <i class="fa-regular fa-square-plus"></i></a>
     </div>
     <div class="projects_wrapper">
     @foreach ($projects as $project)
