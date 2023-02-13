@@ -261,6 +261,7 @@ main{
         height: 400px;
         object-position: 0 -100px;
         object-fit: cover;
+        filter: brightness(70%);
     }
 
 }
@@ -290,6 +291,36 @@ main{
     }
     
 }
+
+//Project-create/modify css
+
+
+    .field{
+        margin-top: 10px;
+    }
+
+    .input_group{
+        display: flex;
+        padding: 20px 0;
+    
+        .input_field{
+            width: 50%;
+        }
+
+        .name_field{
+            width: 90%;
+        }
+
+        .link_field{
+            width: 74%;
+        }
+    }
+
+    .descr_field{
+        width: 100%;
+
+    }
+
 
 
 
